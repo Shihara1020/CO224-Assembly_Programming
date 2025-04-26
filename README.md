@@ -1,25 +1,39 @@
-# ARM Assembly Programming Exercises - CO224 (Software Architecture)
+# ARM Assembly Programming Exercises - CO224
 
-This repository contains ARM Assembly programs completed as part of the **CO224 - Software Architecture** course.
+![ARM Architecture](https://img.shields.io/badge/Architecture-ARM32-red)
+![University](https://img.shields.io/badge/University-Peradeniya-blue)
 
-Each program is carefully implemented following the course assignments and exercises, focusing on basic control structures, arithmetic operations, and memory handling in ARM assembly.
+This repository contains ARM Assembly programs developed for the **CO224 - Software Architecture** course, covering fundamental concepts of low-level programming.
 
----
+## 📁 Lab Exercises
 
-## 📚 Course: CO224 - Software Architecture
-**Institution:** [Your University Name Here]  
-**Module:** ARM Assembly Programming  
-**Language:** ARM Assembly (32-bit)
+### Lab 1: Introduction to Assembly
+- Basic arithmetic operations
+- Register manipulation
+- Memory access (load/store)
+- Simple program structure
 
----
+### Lab 2: Branching & Conditions
+- Conditional execution
+- Comparison operations
+- If-else structures
+- Looping constructs
 
-## 🛠️ Exercises Covered
+### Lab 3: Function Call & Return
+- Subroutine implementation
+- Stack operations
+- Parameter passing
+- Preservation of registers
 
-### Exercise 3
-- **Task:** Implement conditional logic using signed comparison.
-- **Condition:**  
-  ```c
-  if (i >= j) 
-      f = a + b;
-  else 
-      f = a - b;
+## 🛠️ Development Environment
+- **Emulator:** QEMU
+- **Assembler:** GNU ARM Assembler (as)
+- **Debugger:** GDB
+- **Platform:** Raspberry Pi (ARMv6/7)
+
+## 🔧 How to Build & Run
+- **Assemble :** arm-linux-gnueabi-as program.s -o program.o
+
+- **Link :**  arm-linux-gnueabi-ld program.o -o program
+
+- **Run in QEMU :** qemu-arm ./program
