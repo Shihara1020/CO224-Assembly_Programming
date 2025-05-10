@@ -2,6 +2,9 @@
 .text
 
 main:
+    sub sp,sp,#4
+    str lr,[sp,#0]
+    
     sub sp, sp, #4           @ Allocate space on stack to store input
 
     ldr r0,=formati
@@ -27,8 +30,11 @@ print_loop:
 
 end_loop:
     add sp, sp, #4           @ Restore stack
-    mov r7, #1               @ Exit syscall
-    svc #0
+    
+exit:
+    ldr lr,[sp,#0]
+    add sp,#4
+    mov pc,lr
 
 .data
 formati: .asciz "Enter integer: "
