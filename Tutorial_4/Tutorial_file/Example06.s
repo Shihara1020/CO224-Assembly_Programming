@@ -12,20 +12,23 @@ loop:
     ldrb r3,[r4,#0]
 
     cmp r3,#0
-    beq exit
+    beq done
 
     add r4,r4,#1
     add r1,r1,#1   @ r1 increased by one in each loop
     b loop
 
 
-exit:
+done:
     ldr r4,[sp,#0]
     add sp,sp,#4
     mov pc,lr
         
 
 main:
+    sub sp,sp,#4
+    ldr lr,[sp,#0]
+
     sub sp,sp,#100
     ldr r0,=formatr
     bl printf
@@ -43,8 +46,11 @@ main:
     bl printf
 
     add sp,sp,#100
-    mov r7,#1
-    svc #0
+
+exit:
+    ldr lr,[sp,#0]
+    add sp,#4
+    mov pc,lr
 
 .data
 formatr: .asciz "Enter a string: "
