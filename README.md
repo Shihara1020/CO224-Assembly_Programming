@@ -24,6 +24,15 @@ This repository contains ARM Assembly programs developed for the **CO224 - Softw
 - Stack operations
 - Parameter passing
 - Preservation of registers
+- **Recursive functions** (Factorial, Fibonacci)
+- Nested function calls
+- Stack frames and local variables
+### Lab 4: String & I/O Operations
+- String manipulation (length, copy, compare)
+- Character operations (case conversion, classification)
+- System calls for input/output
+- Using scanf and printf from assembly
+- File I/O operations
 
 ## 🛠️ Development Environment
 - **Emulator:** QEMU
