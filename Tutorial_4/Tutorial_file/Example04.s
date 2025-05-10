@@ -2,17 +2,25 @@
 .text
 
 main:
+    sub sp,sp,#4
+    str lr,[sp,#0]
     sub sp,sp,#8
-    mov r4,#0
-    mov r5,sp
+    
+    @ get first integer
+    ldr r0,=formats1
+    bl printf
 
     ldr r0,=formats
-    add r1,sp,#0
+    mov r1,sp
     bl scanf
+
+    @ get second integer
+    ldr r0,=formats2
+    bl printf
 
     ldr r0,=formats
     add r1,sp,#4
-    bl scanf
+    bl scanf 
 
 
     ldr r1,[sp]
@@ -33,9 +41,13 @@ print_equal:
 
 exit:
     add sp,sp,#8
-    mov r7,#1
-    svc #0
+    ldr lr,[sp,#0]
+    add sp,#4
+    mov pc,lr
+
 .data
+formats1: .asciz "Enter the first integer: "
+formats2: .asciz "Enter the first integer: "
 formats: .asciz "%d"
 not_equal_msg: .asciz "The numbers are not equal.\n"
 equal_msg: .asciz "The numbers are equal.\n"
