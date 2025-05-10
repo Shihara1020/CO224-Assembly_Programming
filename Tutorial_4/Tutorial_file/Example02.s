@@ -2,8 +2,10 @@
 .text
 
 main:
+    sub sp,sp,#4
+    str lr,[sp,#0]
+
     sub sp,sp,#8
-    
     @ get first integer
     ldr r0,=formats1
     bl printf
@@ -29,8 +31,13 @@ getSum:
     bl printf
 
     add sp,sp,#8
-    mov r7,#1
-    svc #0
+
+exit:
+    ldr lr,[sp,#0]
+    add sp,#4
+    mov pc,lr
+
+
 
 .data
 formats1: .asciz "Enter the first integer: "
